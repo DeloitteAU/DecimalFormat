@@ -4,7 +4,7 @@
 
 > `decimalformat` is an Node implementation of Java's [`DecimalFormat`](https://docs.oracle.com/javase/7/docs/api/java/text/DecimalFormat.html)class.
 
-🌱 **This is a beta release. Use at your own risk.**
+🌱 *This is a beta release, use with care!*
 
 ## Usage
 
@@ -39,7 +39,7 @@ const { parser } = require('DecimalFormat');
 const result = parser.parse('#.000');
 ```
 
-# `DecimalFormat` class
+## `DecimalFormat` class
 
 The `DecimalFormatter` class wraps the PEG.js parser and provides behaviour in alignment with the Java class of the same name.
 
@@ -126,7 +126,7 @@ The suffix (text after the pattern) of the positive pattern.
 
 Whether the pattern includes an exponent format.
 
-# Parser results
+## Parser results
 
 The parser will return the following object when a pattern is parsed successfully:
 
@@ -157,7 +157,7 @@ The parser will return the following object when a pattern is parsed successfull
 }
 ```
 
-# Caveats
+## Caveats
 
 Please note the following caveats or differences between this implementation and Java's [`DecimalFormat`](https://docs.oracle.com/javase/7/docs/api/java/text/DecimalFormat.html):
 
@@ -165,7 +165,7 @@ Please note the following caveats or differences between this implementation and
 2. This implementation does not parse a pattern where special characters appear more than once. For example, `# 0` will not parse. Where as Java matches the first pattern, and ignores all subsequent patterns.
 3. Similar to Java, this implementation picks the grouping size based on the last grouping to appear in the integer pattern. i.e. `#,##,###` will have a grouping size of 3. As such, it is not possible to use the [thousand, lakh, crore grouping](https://en.wikipedia.org/wiki/Indian_numbering_system).
 
-# Tests
+## Tests
 
 #### Generating tests
 
