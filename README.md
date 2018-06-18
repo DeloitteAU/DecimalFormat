@@ -1,6 +1,6 @@
-# DecimalFormat
+# decimalformat
 
-> `DecimalFormat` is an Node implementation of Java's [`DecimalFormat`](https://docs.oracle.com/javase/7/docs/api/java/text/DecimalFormat.html)class.
+> `decimalformat` is an Node implementation of Java's [`DecimalFormat`](https://docs.oracle.com/javase/7/docs/api/java/text/DecimalFormat.html)class.
 
 🌱 **This is a beta release. Use at your own risk.**
 
@@ -8,7 +8,7 @@
 
 #### Grammar
 
-The grammar is contained in `src/DecimalFormat.pegjs`
+The grammar is contained in `src/decimalformat.pegjs`
 
 #### Generating the parser
 
@@ -59,14 +59,14 @@ Formats a `number` with the provided `locale`.
 
 ```js
 {
-	currencySymbol: '',
-	decimalSeparator: '',
-	digit: '',
-	exponentSeparator: '',
-	groupingSeparator: '',
-	minusSign: '',
-	percent: '',
-	perMill: ''
+    currencySymbol: '',
+    decimalSeparator: '',
+    digit: '',
+    exponentSeparator: '',
+    groupingSeparator: '',
+    minusSign: '',
+    percent: '',
+    perMill: ''
 }
 ```
 
@@ -142,16 +142,16 @@ The parser will return the following object when a pattern is parsed successfull
 
 ```js
 {
-	mantissa: "",
-	decimalSeparatorAlwaysShown: "",
-	minimumExponentDigits: "",
-	minimumFractionDigits: "",
-	maximumFractionDigits: "",
-	minimumIntegerDigits: "",
-	maximumIntegerDigits: "",
-	groupingSize: "",
-	prefix: "",
-	suffix: ""
+    mantissa: "",
+    decimalSeparatorAlwaysShown: "",
+    minimumExponentDigits: "",
+    minimumFractionDigits: "",
+    maximumFractionDigits: "",
+    minimumIntegerDigits: "",
+    maximumIntegerDigits: "",
+    groupingSize: "",
+    prefix: "",
+    suffix: ""
 }
 ```
 

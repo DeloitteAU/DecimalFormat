@@ -1,2 +1,2 @@
 dist/parser.js
-src/DecimalFormat.pegjs
+src/decimalformat.pegjs
