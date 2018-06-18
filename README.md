@@ -1,5 +1,7 @@
 # decimalformat
 
+![npm](https://img.shields.io/npm/v/@node-htl/decimalformat.svg) [![Build Status](https://travis-ci.org/node-htl/DecimalFormat.svg?branch=master)](https://travis-ci.org/node-htl/DecimalFormat)
+
 > `decimalformat` is an Node implementation of Java's [`DecimalFormat`](https://docs.oracle.com/javase/7/docs/api/java/text/DecimalFormat.html)class.
 
 🌱 **This is a beta release. Use at your own risk.**
