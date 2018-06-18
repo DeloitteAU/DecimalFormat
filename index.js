@@ -18,6 +18,26 @@ class DecimalFormat {
 		this.parse(pattern);
 	}
 
+	/*
+		Pads a string to the provided length
+		@param {string} str
+		@param {number} length
+		@param {string} pad
+	*/
+	static padStart(str, length, pad = ' ') {
+		if (str.length > length) {
+            return str
+        } else {
+            length = length - str.length;
+
+            if (length > pad.length) {
+                pad += pad.repeat(length / pad.length);
+            }
+
+            return pad.slice(0, length) + str;
+        }
+    };
+
 	/**
 		Counts the number of occurances of a string within another string.
 		@param {string} str - String to search within
@@ -138,7 +158,7 @@ class DecimalFormat {
 			}
 
 			// Minimum integer digits
-			integerString = integerString.padStart(this.minimumIntegerDigits, '0');
+			integerString = DecimalFormat.padStart(integerString, this.minimumIntegerDigits, '0');
 
 			// Grouping
 			if (this.hasMantissa === false && this.groupingSize > 0) {
