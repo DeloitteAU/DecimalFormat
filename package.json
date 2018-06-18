@@ -1,5 +1,5 @@
 {
-  "name": "DecimalFormat",
+  "name": "@node-htl/decimalformat",
   "version": "0.1.0-beta.1",
   "description": "Node implementation of Java's DecimalFormat",
   "main": "index.js",

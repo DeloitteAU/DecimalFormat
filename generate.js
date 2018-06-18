@@ -1,5 +1,5 @@
 /*
- * DecimalFormat 0.1.0-beta.1
+ * decimalformat 0.1.0-beta.1
  * Copyright (c) 2018
  * https://github.com/node-htl/DecimalFormat/
  *
