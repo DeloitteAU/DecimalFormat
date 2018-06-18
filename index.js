@@ -103,6 +103,8 @@ class DecimalFormat {
 
 		if (typeof number !== 'number') {
 			throw new TypeError(`Argument must be a number, received: ${typeof number}`);
+		} else if (this.hasMantissa) {
+			return number.toExponential();
 		} else {
 			const isNegative = DecimalFormat.isNegative(number);
 			let [integerString, fractionString] = Math.abs(number * this.multiplier).toFixed(this.maximumFractionDigits).split('.');
@@ -156,13 +158,7 @@ class DecimalFormat {
 				suffix = this.positiveSuffix;
 			}
 
-			// Exponent
-			let exponentString = '';
-			if (this.hasMantissa) {
-				exponentString = formatLocale.exponentSeparator + (exponent < 0 ? formatLocale.minusSign + Math.abs(exponent) : exponent);
-			}
-
-			return prefix + integerString + fractionString + exponentString + suffix;
+			return prefix + integerString + fractionString + suffix;
 		}
 	}
 
