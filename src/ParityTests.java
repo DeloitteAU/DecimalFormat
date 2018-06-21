@@ -1,8 +1,7 @@
 /*
- * decimalformat 0.1.0-beta.1
+ * decimalformat 0.1.0
  * Copyright (c) 2018
- * https://github.com/node-htl/DecimalFormat/
- *
+ * https://github.com/DeloitteDigitalAPAC/DecimalFormat/
  * Licensed under the BSD 3-Clause license.
  */
 import java.util.*;

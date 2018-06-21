@@ -1,14 +1,14 @@
 {
-  "name": "@node-htl/decimalformat",
-  "version": "0.1.0-beta.3",
+  "name": "@deloitte-digital-au/decimalformat",
+  "version": "0.1.0",
   "description": "Node implementation of Java's DecimalFormat",
   "main": "index.js",
-  "homepage": "https://github.com/node-htl/DecimalFormat/",
+  "homepage": "https://github.com/DeloitteDigitalAPAC/DecimalFormat/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/node-htl/DecimalFormat.git"
+    "url": "https://github.com/DeloitteDigitalAPAC/DecimalFormat.git"
   },
-  "bugs": "https://github.com/node-htl/DecimalFormat/issues",
+  "bugs": "https://github.com/DeloitteDigitalAPAC/DecimalFormat/issues",
   "engines": {
     "node": ">=6"
   },

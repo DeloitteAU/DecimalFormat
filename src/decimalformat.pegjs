@@ -1,4 +1,10 @@
-{
+/*
+ * decimalformat 0.1.0
+ * Copyright (c) 2018
+ * https://github.com/DeloitteDigitalAPAC/DecimalFormat/
+ * Licensed under the BSD 3-Clause license.
+ */
+ {
     const flatten = (a) => {
         const temp = [];
 

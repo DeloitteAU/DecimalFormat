@@ -1,26 +1,16 @@
 # decimalformat
 
-![npm](https://img.shields.io/npm/v/@node-htl/decimalformat.svg) [![Build Status](https://travis-ci.org/node-htl/DecimalFormat.svg?branch=master)](https://travis-ci.org/node-htl/DecimalFormat)
+![npm](https://img.shields.io/npm/v/@DeloitteDigitalAPAC/DecimalFormat.svg) [![Build Status](https://travis-ci.org/DeloitteDigitalAPAC/DecimalFormat.svg?branch=master)](https://travis-ci.org/DeloitteDigitalAPAC/DecimalFormat)
 
 > `decimalformat` is an Node implementation of Java's [`DecimalFormat`](https://docs.oracle.com/javase/7/docs/api/java/text/DecimalFormat.html)class.
 
-🌱 *This is a beta release, use with care!*
-
-## Usage
-
-#### Grammar
-
-The grammar is contained in `src/decimalformat.pegjs`
-
-#### Generating the parser
-
-This repository comes with a pre-compiled parser. However, you can re-generate the parser with:
+## Installation
 
 ```bash
-npm run grammar:build
+npm install @deloitte-digital-au/decimalformat
 ```
 
-The parser will be output to `dist/parser.js`.
+## Usage
 
 #### Using the `DecimalFormat` class
 
@@ -38,6 +28,20 @@ If you only require the internals of a pattern, you can parse an expression with
 const { parser } = require('DecimalFormat');
 const result = parser.parse('#.000');
 ```
+
+#### Grammar
+
+The grammar is contained in `src/decimalformat.pegjs`
+
+#### Generating the parser
+
+This repository comes with a pre-compiled parser. However, you can re-generate the parser with:
+
+```bash
+npm run grammar:build
+```
+
+The parser will be output to `dist/parser.js`.
 
 ## `DecimalFormat` class
 
@@ -193,7 +197,7 @@ npm run test
 
 > Copyright (C) 2018. All rights reserved.
 > 
-> DecimalFormat can be downloaded from: https://github.com/node-htl/DecimalFormat
+> DecimalFormat can be downloaded from: https://github.com/DeloitteDigitalAPAC/DecimalFormat
 > 
 > Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
 > 
