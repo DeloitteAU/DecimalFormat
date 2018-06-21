@@ -1,6 +1,8 @@
+![Deloitte Digital](https://raw.githubusercontent.com/DeloitteDigitalAPAC/eslint-config-deloitte/master/dd-logo.png)
+
 # decimalformat
 
-![npm](https://img.shields.io/npm/v/@DeloitteDigitalAPAC/DecimalFormat.svg) [![Build Status](https://travis-ci.org/DeloitteDigitalAPAC/DecimalFormat.svg?branch=master)](https://travis-ci.org/DeloitteDigitalAPAC/DecimalFormat)
+[![npm version](https://badge.fury.io/js/%40deloitte-digital-au%2Fdecimalformat.svg)](https://badge.fury.io/js/%40deloitte-digital-au%2Fdecimalformat) [![Build Status](https://travis-ci.org/DeloitteDigitalAPAC/DecimalFormat.svg?branch=master)](https://travis-ci.org/DeloitteDigitalAPAC/DecimalFormat)
 
 > `decimalformat` is an Node implementation of Java's [`DecimalFormat`](https://docs.oracle.com/javase/7/docs/api/java/text/DecimalFormat.html)class.
 
@@ -167,7 +169,6 @@ Please note the following caveats or differences between this implementation and
 
 1. This implementation does not support patterns that include an exponent, such as `0.#E0`.
 2. This implementation does not parse a pattern where special characters appear more than once. For example, `# 0` will not parse. Where as Java matches the first pattern, and ignores all subsequent patterns.
-3. Similar to Java, this implementation picks the grouping size based on the last grouping to appear in the integer pattern. i.e. `#,##,###` will have a grouping size of 3. As such, it is not possible to use the [thousand, lakh, crore grouping](https://en.wikipedia.org/wiki/Indian_numbering_system).
 
 ## Tests
 
@@ -181,7 +182,7 @@ Tests are included in `tests/tests.json`. This file is prepared by the `ParityTe
 npm run java
 ```
 
-The above steps assumes that `javac` and `java` are both available in your your PATH environmental variables.
+(Assumes that `javac` and `java` are both available in your `PATH`)
 
 #### Running tests
 
