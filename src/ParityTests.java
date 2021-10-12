@@ -31,7 +31,8 @@ public class ParityTests {
 		stringList.add(pattern);
 
 		try {
-			DecimalFormat df = new DecimalFormat(pattern);
+			DecimalFormatSymbols dfs = new DecimalFormatSymbols(Locale.US);
+			DecimalFormat df = new DecimalFormat(pattern, dfs);
 			String output = df.format(value);
 
 			numberList.add((double) df.getGroupingSize());
