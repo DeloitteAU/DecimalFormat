@@ -22,6 +22,13 @@ const df = new DecimalFormat('#.000');
 const result = df.format(1.234);
 ```
 
+```ts
+import {DecimalFormat} from "@deloitte-digital-au/decimalformat";
+const locale = { decimalSeparator: '.', groupingSeparator: ',' }
+const df = new DecimalFormat('#.000');
+const result = df.format(1.234, locale);
+```
+
 #### Using the parser
 
 If you only require the internals of a pattern, you can parse an expression with the `DecimalFormat` class, with:
@@ -30,6 +37,12 @@ If you only require the internals of a pattern, you can parse an expression with
 const { parser } = require('DecimalFormat');
 const result = parser.parse('#.000');
 ```
+
+```ts
+import { parser, GrammarParsed } from "@deloitte-digital-au/decimalformat";
+const result : GrammarParsed = parser.parse('#.000');
+```
+
 
 #### Grammar
 
