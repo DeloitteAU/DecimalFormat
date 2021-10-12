@@ -1,19 +1,26 @@
 /*
- * decimalformat 0.1.0
+ * decimalformat 0.2.0
  * Copyright (c) 2018
  * https://github.com/DeloitteDigitalAPAC/DecimalFormat/
  * Licensed under the BSD 3-Clause license.
  */
 'use strict';
 
-const parser = require('./dist/parser');
+import * as parserImport from "@deloitte-digital-au/decimalformat/dist/parser";
+export { GrammarParsed } from "@deloitte-digital-au/decimalformat/dist/parser";
 
-class DecimalFormat {
+export const parser = parserImport;
+
+export class DecimalFormat {
+
+	private pattern : string;
+	private parsed : parserImport.GrammarParsed
+
 	/**
 		@constructor
 		@param {string} pattern - Passed directly to the parse() method
 	*/
-	constructor(pattern) {
+	constructor(pattern : string) {
 		this.parse(pattern);
 	}
 
@@ -23,7 +30,7 @@ class DecimalFormat {
 		@param {number} length
 		@param {string} pad
 	*/
-	static padStart(str, length, pad = ' ') {
+	static padStart(str : string, length : number, pad : string = ' ') : string {
 		if (str.length > length) {
             return str
         } else {
@@ -42,7 +49,7 @@ class DecimalFormat {
 		@param {string} str - String to search within
 		@param {string} search - String to search for
 	*/
-	static count(str, search) {
+	static count(str : string, search : string) : number {
 		return str.split(search).length - 1;
 	}
 
@@ -50,7 +57,7 @@ class DecimalFormat {
 		Reverses a string
 		@param {string} str
 	*/
-	static reverseString(str) {
+	static reverseString(str : string) : string {
 		return str.split('').reverse().join('');
 	}
 
@@ -58,7 +65,7 @@ class DecimalFormat {
 		Returns whether a number is negative; specifically testing for negative zero.
 		@param {number} n
 	*/
-	static isNegative(n) {
+	static isNegative(n : number) : boolean {
 		return n === 0 ? (1 / n < 0) : (n < 0);
 	}
 
@@ -67,7 +74,7 @@ class DecimalFormat {
 		@throws Will throw when the pattern cannot be parsed.
 		@param {string} pattern
 	*/
-	parse(pattern) {
+	private parse(pattern : string) : void {
 		this.pattern = pattern;
 		this.parsed = parser.parse(pattern);
 
@@ -102,7 +109,7 @@ class DecimalFormat {
 		@param {number} size - Number of characters between each separator
 		@param {string} separator - Separator
 	*/
-	static applyGrouping(str, size, separator) {
+	static applyGrouping(str : string, size : number, separator : string) : string {
 		const groupingMatch = new RegExp('(.{' + size + '})(?=.)', 'g');
 
 		str = DecimalFormat.reverseString(str).replace(groupingMatch, (match) => {
@@ -117,7 +124,7 @@ class DecimalFormat {
 		@param {number} number - Number to format
 		@param {object} Locale - Locale
 	*/
-	format(number, locale = {}) {
+	format(number : number, locale : DecimalFormatLocale = {}) {
 		const formatLocale = Object.assign({}, this.defaultLocale, locale);
 
 		if (typeof number !== 'number') {
@@ -181,7 +188,7 @@ class DecimalFormat {
 		}
 	}
 
-	get defaultLocale() {
+	get defaultLocale() : DecimalFormatLocale {
 		return {
 			currencySymbol: '',
 			decimalSeparator: '',
@@ -197,49 +204,49 @@ class DecimalFormat {
 	/**
 		Whether the pattern forces a decimal separator to always be shown.
 	*/
-	get isDecimalSeparatorAlwaysShown() {
+	get isDecimalSeparatorAlwaysShown() : boolean {
 		return this.parsed.positive.decimalSeparatorAlwaysShown;
 	}
 
 	/**
 		Whether the pattern includes an mantissa and exponent.
 	*/
-	get hasMantissa() {
+	get hasMantissa() : boolean {
 		return this.parsed.positive.mantissa;
 	}
 
 	/**
 		Grouping size, or zero if no grouping was specified in the pattern.
 	*/
-	get groupingSize() {
+	get groupingSize() : number {
 		return this.parsed.positive.groupingSize;
 	}
 
 	/**
 		Minimum number of fractional digits specified in the pattern.
 	*/
-	get minimumFractionDigits() {
+	get minimumFractionDigits() : number {
 		return this.parsed.positive.minimumFractionDigits;
 	}
 
 	/**
 		Maximum number of fractional digits specified in the pattern.
 	*/
-	get maximumFractionDigits() {
+	get maximumFractionDigits() : number {
 		return this.parsed.positive.maximumFractionDigits;
 	}
 
 	/**
 		Minimum number of integer digits specified in the pattern.
 	*/
-	get minimumIntegerDigits() {
+	get minimumIntegerDigits() : number {
 		return this.parsed.positive.minimumIntegerDigits;
 	}
 
 	/**
 		Maximum number of integer digits specified in the pattern.
 	*/
-	get maximumIntegerDigits() {
+	get maximumIntegerDigits() : number {
 		return this.parsed.positive.maximumIntegerDigits;
 	}
 
@@ -247,7 +254,7 @@ class DecimalFormat {
 		Symbol used in the pattern which affects the multiplier, or null if a modifier
 		was not specified in the pattern.
 	*/
-	get multiplierSymbol() {
+	get multiplierSymbol() : string {
 		const p = this.parsed.positive;
 
 		if (p.prefix.indexOf('%') > -1) {
@@ -264,7 +271,7 @@ class DecimalFormat {
 	/**
 		Multiplier (as an number) specified in the pattern, or 1 if no multiplier was specified.
 	*/
-	get multiplier() {
+	get multiplier() : number {
 		const multiplierSymbol = this.multiplierSymbol;
 
 		if (multiplierSymbol === '%') {
@@ -277,33 +284,43 @@ class DecimalFormat {
 	/**
 		Text preceeding the negative pattern.
 	*/
-	get negativePrefix() {
+	get negativePrefix() : string {
 		return this.parsed.negative.prefix;
 	}
 
 	/**
 		Text proceeding the negative pattern.
 	*/
-	get negativeSuffix() {
+	get negativeSuffix() : string {
 		return this.parsed.negative.suffix;
 	}
 
 	/**
 		Text preceeding the positive pattern.
 	*/
-	get positivePrefix() {
+	get positivePrefix() : string {
 		return this.parsed.positive.prefix;
 	}
 
 	/**
 		Text proceeding the positive pattern.
 	*/
-	get positiveSuffix() {
+	get positiveSuffix() : string {
 		return this.parsed.positive.suffix;
 	}
 }
 
-module.exports = {
-	DecimalFormat,
-	parser
-};
+/**
+ * The full locale definition of the interface.
+ * Though, currently only decimalSeparator and groupingSeparator are used.
+ */
+export interface DecimalFormatLocale {
+	currencySymbol?    : string,
+	decimalSeparator?  : string,
+	digit?             : string,
+	exponentSeparator? : string,
+	groupingSeparator? : string,
+	minusSign?         : string,
+	percent?           : string,
+	perMill?           : string,
+}

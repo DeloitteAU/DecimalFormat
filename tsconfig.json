@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+        "outDir": "./target/",
+        "rootDir": ".",
+        "baseUrl": "",
+        "sourceMap": true,
+        "inlineSources": true,
+        "declaration": true,
+        "strict": true,
+        "moduleResolution": "node",
+
+        "module": "commonjs",
+        "target": "es2020",
+        "strictNullChecks" : false,
+        "paths": {
+            "@deloitte-digital-au/decimalformat/*" : [ "./*" ]
+        }
+    },
+
+    "files": [
+        "./index.ts",
+    ],
+}
