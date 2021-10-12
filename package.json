@@ -37,7 +37,7 @@
   "author": "Lachlan McDonald <lachlan@radelaide.net>",
   "license": "BSD-3-Clause",
   "devDependencies": {
-    "jest": "^23.0.1",
-    "pegjs": "^0.10.0"
+    "jest": "^27.2.5",
+    "peggy": "^1.2.0"
   }
 }
