@@ -8,7 +8,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const peg = require('pegjs');
+const peg = require('peggy');
 
 const grammar = fs.readFileSync(path.join('src', 'decimalformat.pegjs'), 'utf8');
 const parserSource = peg.generate(grammar, {

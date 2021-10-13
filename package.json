@@ -1,6 +1,6 @@
 {
   "name": "@deloitte-digital-au/decimalformat",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Node implementation of Java's DecimalFormat",
   "main": "index.js",
   "homepage": "https://github.com/DeloitteDigitalAPAC/DecimalFormat/",
@@ -14,22 +14,30 @@
   },
   "files": [
     "dist/*",
+    "package.json",
     "index.js"
   ],
+  "types": "index.d.ts",
   "eslintConfig": {
     "env": {
       "jest": true
     }
   },
   "contributors": [
-    "Lachlan McDonald <lachlan@radelaide.net>"
+    "Lachlan McDonald <lachlan@radelaide.net>",
+    "Heiko Studt <heiko.studt@iteg.at>"
   ],
   "scripts": {
     "test": "jest",
     "grammar:build": "node ./generate.js",
     "java": "npm run java:compile; npm run java:build",
     "java:compile": "javac -d . ./src/ParityTests.java",
-    "java:build": "java ParityTests"
+    "java:build": "java ParityTests",
+    "build": "npm run build:ts && npm run copy",
+    "build:ts": "./node_modules/typescript/bin/tsc",
+    "copy": "npm run copy:dist && npm run copy:package",
+    "copy:dist": "mkdir -p target/dist && cp ./dist/parser.js ./dist/parser.d.ts target/dist",
+    "copy:package": "mkdir -p target/ && cp ./package.json ./LICENSE ./README.md target/"
   },
   "keywords": [
     "HTL"
@@ -37,7 +45,10 @@
   "author": "Lachlan McDonald <lachlan@radelaide.net>",
   "license": "BSD-3-Clause",
   "devDependencies": {
-    "jest": "^23.0.1",
-    "pegjs": "^0.10.0"
+    "@types/jest": "^27.0.2",
+    "jest": "^27.2.5",
+    "peggy": "^1.2.0",
+    "ts-jest": "^27.0.5",
+    "typescript": "^4.4.3"
   }
 }
